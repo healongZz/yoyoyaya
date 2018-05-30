@@ -119,9 +119,9 @@ client.on("guildMemberAdd", function(member) {
   }
 
 	  if(command === "needhelp" || command === "nhelp") {
-		  message.delete();
+		  message.delete()
 		  if(args[0] == "help") {
-			  message.channel.send(`Usege : **${botconfig.prefix}needhelp [request message]** \n\nExamples : **${botconfig.prefix}needhelp How i Can Get Rank|Role From Server !**`).then(msg => msg.delete(90090));
+			  message.channel.send(`Usege : **${botconfig.prefix}needhelp [request message]** \n\nExamples : **${botconfig.prefix}needhelp How i Can Get Rank|Role From Server !**`).then(msg => msg.delete(9009));
 			  return;
 			  }
 		  let text = args.join(" ");
@@ -308,7 +308,7 @@ if(args[0] == "help"){
     })
 }
 
-  if(command === "guilds" || command === "guild") {
+  if(command === "guilds" || command === "guildlist") {
 message.delete()
 if (!['356510829920780289',].includes(message.author.id)) return message.reply(`**You cant do that, only the bot developer can! || do ${botconfig.prefix}dev**`).then(msg => msg.delete(9000));
 	let user = message.mentions.users.first() || message.author;
@@ -466,7 +466,7 @@ voiceChannel.join().then(connection => resolve(connection)).catch(err => reject(
   .addField("<:gtav:445457716534575115> GTA V IGN :", gtav, true)
   .addField("<:dota:445457915285864458> DOTA 2 IGN :", dota, true)
   .addField("<:steam:445457979224096779> STEAM NAME :", steam, true)
-  .setFooter("@ = [SPAEC] ")
+  .setFooter("- = [SPAEC] ")
   .setTimestamp()
     const pollTitle = await message.channel.send(ign);
       await pollTitle.react(`445459131931820044`);
@@ -597,7 +597,7 @@ voiceChannel.join().then(connection => resolve(connection)).catch(err => reject(
     .addField("Developer", "`guild` `leaveserver`")
     .addField("Mods", "`clear` `say` `chatto` `annto` `dpto` `discordpartners` `create voicechannel` `create textchannel`")
     .addField("Info", "`serverinfo` `serverrule` `servconnect` `userinfo` `topinvites` `developer`")
-    .addField("General", "`ping` `avatar` `emojilist` `get` `random` `status` `autousername` `jumboemoji`")
+    .addField("General", "`ping` `avatar` `emojilist` `get` `random` `status`  `autousername`  `jumboemoji`  `needhelp`")
     .addField("Fun", "`Coming Soon`")
     .setFooter(`Requested by : ${message.author.tag}`);
 
