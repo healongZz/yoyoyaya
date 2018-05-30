@@ -127,7 +127,7 @@ client.on("guildMemberAdd", function(member) {
 		  .addField(`From Channel :`, message.channel)
 		  .setTimestamp()
 		  
-		  let nhc = message.guild.channels.find(`name` "request-help");
+		  let nhc = message.guild.channels.find(`name`, "request-help");
 		  if(!nhc) return message.channel.send("I Can't Not Find **request-help** Channel !")
 		  nhc.send(needhelp);
 		  message.channel.send(`${message.author.username}\n**Thank You For Request-Help , Your Request Message Will Send To STAFF To Reply Your Request Back!**`).then(msg => msg.delete(10000));	
