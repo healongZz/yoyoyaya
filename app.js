@@ -119,6 +119,7 @@ client.on("guildMemberAdd", function(member) {
   }
 
 	  if(command === "needhelp" || command === "nhelp") {
+		  message.delete();
 		  let text = args.join(" ");
 		  const needhelp = new Discord.RichEmbed()
 		  .setColor('RANDOM')
@@ -130,7 +131,7 @@ client.on("guildMemberAdd", function(member) {
 		  let nhc = message.guild.channels.find(`name`, "request-help");
 		  if(!nhc) return message.channel.send("I Can't Not Find **request-help** Channel !")
 		  nhc.send(needhelp);
-		  message.channel.send(`${message.author.username}\n**Thank You For Request-Help , Your Request Message Will Send To STAFF To Reply Your Request Back!**`).then(msg => msg.delete(10000));	
+		  message.channel.send(`__**${message.author.username}**__ :\n\n**Thank You For Request-Help , Your Request Message Will Send To STAFF To Reply Your Request Back!**`).then(msg => msg.delete(10000));	
 		  }
 	  
   if(command === "ctc" || command === "create-textchannel") {
