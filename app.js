@@ -120,6 +120,10 @@ client.on("guildMemberAdd", function(member) {
 
 	  if(command === "needhelp" || command === "nhelp") {
 		  message.delete();
+		  if(args[0] == "help") {
+			  message.channel.send(`Usege : **${botconfig.prefix}needhelp [request message]** \n\nExamples : **${botconfig.prefix}needhelp How i Can Get Rank|Role From Server !**`).then(msg => msg.delete(90090));
+			  return;
+			  }
 		  let text = args.join(" ");
 		  const needhelp = new Discord.RichEmbed()
 		  .setColor('RANDOM')
