@@ -118,7 +118,22 @@ client.on("guildMemberAdd", function(member) {
     }
   }
 
-  if(command === "ctc" || command === "create textchannel") {
+	  if(command === "needhelp" || command === "nhelp") {
+		  let text = args.join(" ");
+		  const needhelp = new Discord.RichEmbed()
+		  .setColor('RANDOM')
+		  .setAuthor(`${message.author.username} Request Help !`, message.author.avatarURL)
+		  .addField(`Request`, text)
+		  .addField(`From Channel :`, message.channel)
+		  .setTimestamp()
+		  
+		  let nhc = message.guild.channels.find(`name` "request-help");
+		  if(!nhc) return message.channel.send("I Can't Not Find **request-help** Channel !")
+		  nhc.send(needhelp);
+		  message.channel.send(`${message.author.username}\n**Thank You For Request-Help , Your Request Message Will Send To STAFF To Reply Your Request Back!**`).then(msg => msg.delete(10000));	
+		  }
+	  
+  if(command === "ctc" || command === "create-textchannel") {
   let channel = args.join(" ");
   if(!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send("**You do not have permission to do that!**");
   message.guild.createChannel(channel, 'text');
@@ -126,14 +141,14 @@ client.on("guildMemberAdd", function(member) {
 
 }
 
-  if(command === "cvc" || command === "create voicechannel") {
+  if(command === "cvc" || command === "create-voicechannel") {
   let channel = args.join(" ");
   if(!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send("**You do not have permission to do that!**");
   message.guild.createChannel(channel, 'voice');
   message.channel.send(`✅ **${message.author.username}** Has Create Text Channel **${channel}**`).then(msg => msg.delete(8000));
 
 }
-
+	
 if(command === "newvideo" || command === "nv") {
   if(!message.member.hasPermission("MANAGE_MESSAGE")) return message.channel.send(`${message.author.username} You Don\'t Have **Manage Message** To Use This Commands !`);
 message.delete()
