@@ -137,6 +137,14 @@ client.on("guildMemberAdd", function(member) {
 		  nhc.send(needhelp);
 		  message.channel.send(`__**${message.author.username}**__ :\n\n**Thank You For Request-Help , Your Request Message Will Send To STAFF To Reply Your Request Back!**`).then(msg => msg.delete(10000));	
 		  }
+	  if(command === "time" || command === "clock") {
+		  var today = new Date()
+                  let Day = today.toString().split(" ")[0].concat("day");
+                  let Month = today.toString().split(" ")[1]
+                  let Year = today.toString().split(" ")[3]
+                  message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Time of day:\` \`${today.toString().split(" ")[4]}\``)
+ }
+
 	  
   if(command === "ctc" || command === "create-textchannel") {
   let channel = args.join(" ");
