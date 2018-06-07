@@ -37,28 +37,7 @@ client.on('guildMemberRemove', member => {
     member.guild.channels.get('446673535029739520').setName(`Total Users: ${member.guild.memberCount}`);
 });
 //memberjoin : https://hastebin.com/gedecajeke.js
-client.commands = new Discord.Collection();
-client.aliases = new Discord.Collection();
 
-fs.readdir('./commands/', (err, files) => {
-	if (err)
-		console.error(err);
-	let jsfiles = files.filter(f => f.split('.')
-		.pop() === 'js');
-	if (jsfiles.length <= 0) {
-		console.log('No commands to load!');
-		return;
-	}
-	console.log(`[Commands]\tLoaded a total amount ${files.length} Commands`);
-	jsfiles.forEach(f => {
-		let props = require(`./commands/${ f }`);
-		props.fileName = f;
-		client.commands.set(props.help.name, props);
-		props.conf.aliases.forEach(alias => {
-			client.aliases.set(alias, props.help.name);
-		});
-	});
-});
 
 client.on("message", message => {
   if (message.channel.type === "dm") {
