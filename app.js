@@ -27,6 +27,7 @@ const Cleverbot = require("cleverbot-node");
 const clbot = new Cleverbot;
 clbot.configure({botapi: "dqr2PbIOKMD8oQD6eCFy7kpRWXS0Hj98"});
 const api = "https://api.whatdoestrumpthink.com/api/v1/quotes/random";
+const Enmap = require("enmap");
 
 client.on('guildMemberAdd', member => {
     member.guild.channels.get('446673535029739520').setName(`Total Users: ${member.guild.memberCount}`);
@@ -36,6 +37,18 @@ client.on('guildMemberRemove', member => {
     member.guild.channels.get('446673535029739520').setName(`Total Users: ${member.guild.memberCount}`);
 });
 //memberjoin : https://hastebin.com/gedecajeke.js
+
+client.commands = new Enmap();
+fs.readdir("./commands/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/${file}`);
+    let commandName = file.split(".")[0];
+    console.log(`Attempting to load command ${commandName}`);
+    client.commands.set(commandName, props);
+  });
+});
 
 client.on("message", message => {
   if (message.channel.type === "dm") {
