@@ -37,18 +37,27 @@ client.on('guildMemberRemove', member => {
     member.guild.channels.get('446673535029739520').setName(`Total Users: ${member.guild.memberCount}`);
 });
 //memberjoin : https://hastebin.com/gedecajeke.js
-client.config = botconfig;
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
 
-client.commands = new Enmap();
-fs.readdir("./commands/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./commands/${file}`);
-    let commandName = file.split(".")[0];
-    console.log(`Attempting to load command ${commandName}`);
-    client.commands.set(commandName, props);
-  });
+fs.readdir('./commands/', (err, files) => {
+	if (err)
+		console.error(err);
+	let jsfiles = files.filter(f => f.split('.')
+		.pop() === 'js');
+	if (jsfiles.length <= 0) {
+		console.log('No commands to load!');
+		return;
+	}
+	console.log(`[Commands]\tLoaded a total amount ${files.length} Commands`);
+	jsfiles.forEach(f => {
+		let props = require(`./commands/${ f }`);
+		props.fileName = f;
+		client.commands.set(props.help.name, props);
+		props.conf.aliases.forEach(alias => {
+			client.aliases.set(alias, props.help.name);
+		});
+	});
 });
 
 client.on("message", message => {
