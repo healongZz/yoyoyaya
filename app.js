@@ -1,5 +1,6 @@
 const yoMamma = require('yo-mamma').default;
 const moment = require("moment");
+const mathjs = require("mathjs");
 const sm = require('string-similarity');
 const Fortnite = require('fortnite');
 const stats = new Fortnite("aff6929e-6efc-468d-9058-daba0491d714");
@@ -89,6 +90,33 @@ client.on("guildMemberAdd", function(member) {
     const args = message.content.slice(botconfig.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();  
 
+	  if(command === "math") {
+		    let input = args.join(" ");
+    if (!input) {
+        message.reply('__You must provide a equation to be solved on the calculator!__');
+        return;
+    }
+
+    const question = args.join(" ");
+
+    let answer;
+    try {
+        answer = mathjs.eval(question);
+    } catch (err) {
+        return message.reply(`**Invalid math equation:** ${err}`);
+    }
+
+    const embed = new Discord.RichEmbed()
+        .setThumbnail("https://images-na.ssl-images-amazon.com/images/I/31QYTepQomL.png")
+        .setColor('RANDOM')
+        .addField("**Question:**", question, true)
+        .addField("**Answer:**", answer)
+
+    message.channel.send({
+        embed
+    })
+};
+	  
    if(command === "jumboemoji" || command === "jb") {
     if(!args[0]) return message.channel.send(`**Provide an emoji to jumbify.** ${botconfig.prefix}jumboemoji :clap:`).then(msg => msg.delete(12000));
     try {
