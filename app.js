@@ -37,6 +37,7 @@ client.on('guildMemberRemove', member => {
     member.guild.channels.get('446673535029739520').setName(`Total Users: ${member.guild.memberCount}`);
 });
 //memberjoin : https://hastebin.com/gedecajeke.js
+client.config = botconfig;
 
 client.commands = new Enmap();
 fs.readdir("./commands/", (err, files) => {
