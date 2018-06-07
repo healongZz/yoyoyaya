@@ -32,6 +32,7 @@
     "ytdl": "^0.10.1",
     "ytdl-core": "^0.20.2",
     "discord.js-music": "^2.1.0",
+    "mathjs": "^4.4.2",
     "ffmpeg-binaries": "^3.2.2-3"
   }
 }
