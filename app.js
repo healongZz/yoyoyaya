@@ -30,11 +30,11 @@ const api = "https://api.whatdoestrumpthink.com/api/v1/quotes/random";
 const Enmap = require("enmap");
 
 client.on('guildMemberAdd', member => {
-    member.guild.channels.get('446673535029739520').setName(`Total Users: ${member.guild.memberCount}`);
+    member.guild.channels.get('446673535029739520').setName(`Total-Member : ${member.guild.memberCount}`);
 });
 
 client.on('guildMemberRemove', member => {
-    member.guild.channels.get('446673535029739520').setName(`Total Users: ${member.guild.memberCount}`);
+    member.guild.channels.get('446673535029739520').setName(`Total-Member : ${member.guild.memberCount}`);
 });
 //memberjoin : https://hastebin.com/gedecajeke.js
 
