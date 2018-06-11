@@ -73,8 +73,8 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-let invitelink = message.content.contains("discord.gg") 
-  return message.reply("not allow use invite link !") ;
+if (message.content.contains("discord.gg"))
+  return message.reply("not allow use invite link !");
   message.delete() 
   
 });
