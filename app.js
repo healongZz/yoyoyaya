@@ -69,14 +69,15 @@ client.on("message", message => {
       .catch(console.error);
     message.channel.send(`<:BOT:445430903808983050> **${message.author.tag}** Has Create Hook **${name}** From Channel !`).then(msg => msg.delete(99999));
     message.delete(5000)
-  }
-});
+ // }
+//});
 
-client.on("message", message => {
+//client.on("message", message => {
 if(message.content.contains("discord.gg")) {
   return message.reply("not allow use invite link !");
-  message.delete();
+ // message.delete();
   }
+}
 });
 
   client.on("guildCreate", async guild => {
