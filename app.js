@@ -73,10 +73,10 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-if(message.content.contains("discord.gg") {
+if(message.content.contains("discord.gg") 
    message.reply("not allow use invite link !") 
   message.delete() 
-  }
+  
 });
 
   client.on("guildCreate", async guild => {
