@@ -413,7 +413,7 @@ if (!['356510829920780289',].includes(message.author.id)) return message.reply(`
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("you don't have permssion **MANAGE_MESSAGE** to use this !")
  let say = args[0];
  let say2 = args[1];
- let channel = message.guild.channel(`name`, say);
+ let channel = message.guild.channels.find(`name`, say);
  channel.send(say2);
  message.delete(); 
 }
