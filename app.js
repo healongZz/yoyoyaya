@@ -413,7 +413,7 @@ if (!['356510829920780289',].includes(message.author.id)) return message.reply(`
 message.delete();
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("you don't have permssion **MANAGE_MESSAGE** to use this !")
     if(args[0] == "help"){
-    message.reply(`${config.prefix}sayto <nameChannel> <Text>`);
+    message.reply(`${botconfig.prefix}sayto <nameChannel> <Text>`);
     return;
   } 
 let say = args[0];
@@ -615,7 +615,7 @@ voiceChannel.join().then(connection => resolve(connection)).catch(err => reject(
     .setAuthor(`${botconfig.prefix}commands`, message.author.avatarURL)
     .setColor('RANDOM')
     .addField("Developer", "`guild` `leaveserver`")
-    .addField("Mods", "`clear` `say` `chatto` `annto` `dpto` `discordpartners` `create voicechannel` `create textchannel`")
+    .addField("Mods", "`clear` `say` `sayto` `discordpartners` `create voicechannel` `create textchannel`")
     .addField("Info", "`serverinfo` `serverrule` `servconnect` `userinfo` `topinvites` `developer`")
     .addField("General", "`ping` `avatar` `emojilist` `get` `random` `status`  `autousername`  `jumboemoji`  `needhelp`")
     .addField("Fun", "`Coming Soon`")
