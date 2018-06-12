@@ -410,51 +410,18 @@ if (!['356510829920780289',].includes(message.author.id)) return message.reply(`
        message.delete();
     }   
 	  if(command === "sayto") {
+message.delete();
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("you don't have permssion **MANAGE_MESSAGE** to use this !")
- let say = args[0];
+    if(args[0] == "help"){
+    message.reply(`${config.prefix}sayto <nameChannel> <Text>`);
+    return;
+  } 
+let say = args[0];
  let say2 = args[1];
  let channel = message.guild.channels.find(`name`, say);
- channel.send(say2);
- message.delete(); 
+ channel.send(say2); 
 }
-   if(command == "dpto") {
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("you don't have permssion **MANAGE_MESSAGE** to use this !");
-    if(args[0] == "help"){
-    message.reply("```Create #annoucements first and do k!chatembed on the channel you want message sand to #discord-partner```");
-    return;
-  }
-    let chatchannel = message.guild.channels.find(`name`, "discord-partner");
-    if(!chatchannel) return message.channel.send("you need create channel #discord-partner to chat !");
-    message.delete().catch(O_o=>{});
-    chatchannel.send(args.join(" "));
 
-   }
-
-   if(command == "annto") {
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("you don't have permssion MANAGE_MESSAGE to use this !");
-    if(args[0] == "help"){
-    message.reply("```Create #annoucements first and do k!chatembed on the channel you want message sand to #announcements```");
-    return;
-  }
-    let chatchannel = message.guild.channels.find(`name`, "announcements");
-    if(!chatchannel) return message.channel.send("you need create channel #announcements to chat !");
-    message.delete().catch(O_o=>{});
-    chatchannel.send(args.join(" "));
-
-   }
-
-   if(command == "chatto") {
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("you don't have permssion MANAGE_MESSAGE to use this !");
-    if(args[0] == "help"){
-    message.reply("```Create #annoucements first and do k!chatembed on the channel you want message sand to #chatto```");
-    return;
-  }
-    let chatchannel = message.guild.channels.find(`name`, "chatto");
-    if(!chatchannel) return message.channel.send("you need create channel #chatto to chat !");
-    message.delete().catch(O_o=>{});
-    chatchannel.send(args.join(" "));
-
-   }
 
  if(command === "join") {
   return new Promise((resolve, reject) => {
@@ -660,7 +627,7 @@ voiceChannel.join().then(connection => resolve(connection)).catch(err => reject(
 if(command === "dev" || command === "developer") {
   const dev = new Discord.RichEmbed()
   .setColor('RANDOM')
-  .addField(`• Developer`, "TaMoToJiᵛᵉʳᶦᶠᶦᵉᵈ林坓龙#5881")
+  .addField(`• Developer`, "тαмσтσנι ( нєαℓσиg )#5881")
   .addField(`Facebook`, "[CLICK HERE TO VIEW](https://www.facebook.com/tamotoji168)")
   .addField('DiscordServer', `${message.author.username} [CLICK HERE TO JOIN SERVER](https://discord.gg/ZWWD7zT)`)
  // .setImage("https://cdn.discordapp.com/attachments/446881833213231105/447046532814995456/TAMOTOJI-PROFILE.jpg")
