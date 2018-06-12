@@ -126,7 +126,7 @@ client.on("guildMemberAdd", function(member) {
         embed
     })
 };
-	  
+
    if(command === "jumboemoji" || command === "jb") {
     if(!args[0]) return message.channel.send(`**Provide an emoji to jumbify.** ${botconfig.prefix}jumboemoji :clap:`).then(msg => msg.delete(12000));
     try {
@@ -409,7 +409,14 @@ if (!['356510829920780289',].includes(message.author.id)) return message.reply(`
        message.channel.send(args.join(" "));
        message.delete();
     }   
-
+	  if(command === "sayto") {
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("you don't have permssion **MANAGE_MESSAGE** to use this !")
+ let say = args[0];
+ let say2 = args[1];
+ let channel = message.guild.channel(`name`, say);
+ channel.send(say2);
+ message.delete(); 
+}
    if(command == "dpto") {
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("you don't have permssion **MANAGE_MESSAGE** to use this !");
     if(args[0] == "help"){
