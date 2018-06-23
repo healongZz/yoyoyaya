@@ -102,7 +102,7 @@ client.on("guildMemberAdd", function(member) {
 	  
 if(command === "picture" ) {
 message.delete();
-//let icon = ["https://cdn.discordapp.com/attachments/436451619375153152/460025182166450176/project-preview-large-2.png", "https://cdn.discordapp.com/attachments/436451619375153152/460025749026504714/camera.png"];
+let icon = ["https://cdn.discordapp.com/attachments/436451619375153152/460025182166450176/project-preview-large-2.png", "https://cdn.discordapp.com/attachments/436451619375153152/460025749026504714/camera.png"];
 let channelTo = args[0];
 let picture = args[1];
 let channel = message.guild.channels.find("name", channelTo);
@@ -119,6 +119,7 @@ let m = await send(channel, embed, {
    })
 await m.react("👍");
 await m.react("👎");
+channel.send("\@everyone").then(m => m.delete(300));
 }
 	  
 	  if(command === "math") {
