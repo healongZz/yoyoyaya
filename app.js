@@ -112,7 +112,7 @@ const embed = new Discord.RichEmbed()
 .setImage(picture)
 .setTitle("Reaction By :")
 .setDescription(`\`\`\`👍 LIKE\n👎DisLike\`\`\``);
-let m = await send(channel.send, embed {
+let m = await send(channel.send, embed, {
 
 		   name: 'Mirai Picture',
 		   icon: 'https://cdn.discordapp.com/attachments/436451619375153152/460025182166450176/project-preview-large-2.png'
