@@ -102,7 +102,7 @@ client.on("guildMemberAdd", function(member) {
 	  
 if(command === "picture" ) {
 message.delete();
-let icon = ["https://cdn.discordapp.com/attachments/436451619375153152/460025182166450176/project-preview-large-2.png", "https://cdn.discordapp.com/attachments/436451619375153152/460025749026504714/camera.png"];
+//let icon = ["https://cdn.discordapp.com/attachments/436451619375153152/460025182166450176/project-preview-large-2.png", "https://cdn.discordapp.com/attachments/436451619375153152/460025749026504714/camera.png"];
 let channelTo = args[0];
 let picture = args[1];
 let channel = message.guild.channels.find("name", channelTo);
@@ -110,15 +110,15 @@ if(!channel) return message.reply(`**Sorry I Cant Find Channel** \`${channelTo}\
 const embed = new Discord.RichEmbed()
 .setColor('RANDOM')
 .setImage(picture)
-.setTitle("Reaction By :")
-.setDescription(`\`\`\`👍 LIKE\n👎DisLike\`\`\``);
+.setTitle("Reaction By : ⬇")
+.setDescription(`\`\`\`👍 LIKE | 👎 DisLike\`\`\``);
 let m = await send(channel, embed, {
 
 		   name: 'Mirai Picture',
 		   icon: 'https://cdn.discordapp.com/attachments/436451619375153152/460025182166450176/project-preview-large-2.png'
    })
-m.react("👍");
-m.react("👎");
+await m.react("👍");
+await m.react("👎");
 }
 	  
 	  if(command === "math") {
@@ -632,6 +632,7 @@ voiceChannel.join().then(connection => resolve(connection)).catch(err => reject(
 
    
    if(command === "help") {
+	   message.delete(2000);
     const serverEmbed = new Discord.RichEmbed()
     .setAuthor(`${botconfig.prefix}commands`, message.author.avatarURL)
     .setColor('RANDOM')
