@@ -108,11 +108,11 @@ let picture = args[1];
 let channel = message.guild.channels.find("name", channelTo);
 if(!channel) return message.reply(`**Sorry I Cant Find Channel** \`${channelTo}\` !`);
 const embed = new Discord.RichEmbed()
-.setColor('RANDO')
+.setColor('RANDOM')
 .setImage(picture)
 .setTitle("Reaction By :")
 .setDescription(`\`\`\`👍 LIKE\n👎DisLike\`\`\``);
-let m = await send(channel.send, embed, {
+let m = await send(channel, embed, {
 
 		   name: 'Mirai Picture',
 		   icon: 'https://cdn.discordapp.com/attachments/436451619375153152/460025182166450176/project-preview-large-2.png'
