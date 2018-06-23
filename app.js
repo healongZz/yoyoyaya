@@ -99,7 +99,28 @@ client.on("guildMemberAdd", function(member) {
     if(message.author.bot) return;
     const args = message.content.slice(botconfig.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();  
+	  
+if(command === "picture" ) {
+message.delete();
+let icon = ["https://cdn.discordapp.com/attachments/436451619375153152/460025182166450176/project-preview-large-2.png", "https://cdn.discordapp.com/attachments/436451619375153152/460025749026504714/camera.png"];
+let channelTo = args[0];
+let picture = args[1];
+let channel = message.guild.channels.find("name", channelTo);
+if(!channel) return message.reply(`**Sorry I Cant Find Channel** \`${channelTo}\` !`);
+const embed = new Discord.RichEmbed()
+.setColor('RANDO')
+.setImage(picture)
+.setTitle("Reaction By :")
+.setDescription(`\`\`\`👍 LIKE\n👎DisLike\`\`\``);
+let m = await send(channel.send, embed {
 
+		   name: 'Mirai Picture',
+		   icon: 'https://cdn.discordapp.com/attachments/436451619375153152/460025182166450176/project-preview-large-2.png'
+   })
+m.react("👍");
+m.react("👎");
+}
+	  
 	  if(command === "math") {
 		    let input = args.join(" ");
     if (!input) {
