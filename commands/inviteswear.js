@@ -6,11 +6,11 @@ message.delete();
 //const args = message.content.slice(prefix.length).split(/ +/);
 //const commandName = args.shift().toLowerCase();
 
-let link = args[1];
+let link = args.join(" ");
     const embed = new Discord.RichEmbed()
     .setColor("RANDON")
     .setDescription("\@everyone\n\n**Now ! You Can Invite Your Friend or People To Server With This Link , And Help Grow Server And Help Me Guy !**")
-    .addField("INVITE LINK", `[INVITE LINK](${link})\n**${link}**`)
+    .addField("INVITE LINK", `**${link}**`)
     
    send(message.channel, embed, {
      name: "📝 MIRAI ANNOUNCED",
