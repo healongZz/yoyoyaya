@@ -29,6 +29,23 @@ clbot.configure({botapi: "dqr2PbIOKMD8oQD6eCFy7kpRWXS0Hj98"});
 const api = "https://api.whatdoestrumpthink.com/api/v1/quotes/random";
 const Enmap = require("enmap");
 
+let prefix = "]";
+
+client.on("message", async message => {
+  if(message.author.bot) return;
+  if(message.content.startsWith(prefix)){
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+    
+    try {
+      let commandFile = require(`./commands/${command}.js`);
+      commandFile.run(client, message, Discord, prefix, );
+    } catch (err) {
+      console.error(err);
+    }
+  }
+});
+
 client.on('guildMemberAdd', member => {
     member.guild.channels.get('446673535029739520').setName(`Total-Member : ${member.guild.memberCount}`);
 });
