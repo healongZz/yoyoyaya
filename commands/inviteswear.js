@@ -2,10 +2,12 @@ const Discord = require("discord.js");
 const send = require("quick.hook");
 
 exports.run = (client, message, args, prefix) => {
-message.delete();
+
 const args = message.content.slice(prefix.length).split(/ +/);
 const commandName = args.shift().toLowerCase();
 
+message.delete();
+    
 let link = args.join(" ");
     const embed = new Discord.RichEmbed()
     .setColor("RANDON")
