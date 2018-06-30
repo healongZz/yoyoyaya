@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const send = require("qucik.hook");
+const send = require("quick.hook");
 
 exports.run = (client, message, Discord, prefix) => {
 
