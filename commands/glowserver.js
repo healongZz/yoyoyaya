@@ -3,8 +3,8 @@ const send = require("quick.hook");
 
 exports.run = (client, message, Discord, prefix) => {
 
-if(message.member.hasPermission("MANAGER_MESSAGE")) return message.channel.send("Ot Mean Permission xD");
-
+//if(message.member.hasPermission("MANAGER_MESSAGE")) return message.channel.send("Ot Mean Permission xD");
+if(!message.member.hasPermission("MANAGE_MESSAGE")) return message.channel.send("**You do not have permission to do that!**");
 message.delete();
 const embed = new Discord.RichEmbed()
 
