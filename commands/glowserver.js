@@ -2,10 +2,10 @@ const Discord = require("discord.js");
 const send = require("quick.hook");
 
 exports.run = (client, message, Discord, prefix) => {
-
+message.delete();
 //if(message.member.hasPermission("MANAGER_MESSAGE")) return message.channel.send("Ot Mean Permission xD");
 if(!message.member.hasPermission("MANAGE_MESSAGE")) return message.channel.send("**You do not have permission to do that!**");
-message.delete();
+
 const embed = new Discord.RichEmbed()
 
 .setColor("RANDOM")
@@ -19,7 +19,7 @@ const embed = new Discord.RichEmbed()
 message.channel.send("\@everyone");//.then(m => m.delete(200));
 send(message.channel, embed, {
    name: "TAMOTOJI Manager",
-   icon: "https://cdn.discordapp.com/attachments/460329537805484032/462505598487887874/LEGEND_20180629_140900.gif"
+   icon: "https://cdn.discordapp.com/avatars/356510829920780289/ed63db302e8f5a53bb26b2ca04d1b203.png?size=2048"
   })
 
 }
